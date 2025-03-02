@@ -34,6 +34,12 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					Short:          "Send a create-resource tx",
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "title"}, {ProtoField: "description"}},
 				},
+				{
+					RpcMethod:      "UpdateResource",
+					Use:            "update-resource [title] [description] [id]",
+					Short:          "Send a update-resource tx",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "title"}, {ProtoField: "description"}, {ProtoField: "id"}},
+				},
 				// this line is used by ignite scaffolding # autocli/tx
 			},
 		},
