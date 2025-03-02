@@ -9,6 +9,12 @@ const (
 
 	// MemStoreKey defines the in-memory store key
 	MemStoreKey = "mem_crudechain"
+
+	// ResourceKey is used to uniquely identify resources within the system.
+	ResourceKey = "Resource/value/"
+
+	// ResourceCountKey is used to track the ID of the latest resource.
+	ResourceCountKey = "Resource/count/"
 )
 
 var (
