@@ -54,11 +54,8 @@ import (
 	"google.golang.org/protobuf/types/known/durationpb"
 
 	crudechainmodulev1 "crude-chain/api/crudechain/crudechain/module"
-	resourcemodulev1 "crude-chain/api/crudechain/resource/module"
 	_ "crude-chain/x/crudechain/module" // import for side-effects
 	crudechainmoduletypes "crude-chain/x/crudechain/types"
-	_ "crude-chain/x/resource/module" // import for side-effects
-	resourcemoduletypes "crude-chain/x/resource/types"
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 )
 
@@ -97,7 +94,6 @@ var (
 		circuittypes.ModuleName,
 		// chain modules
 		crudechainmoduletypes.ModuleName,
-		resourcemoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/initGenesis
 	}
 
@@ -123,7 +119,6 @@ var (
 		ibcfeetypes.ModuleName,
 		// chain modules
 		crudechainmoduletypes.ModuleName,
-		resourcemoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/beginBlockers
 	}
 
@@ -143,7 +138,6 @@ var (
 		ibcfeetypes.ModuleName,
 		// chain modules
 		crudechainmoduletypes.ModuleName,
-		resourcemoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/endBlockers
 	}
 
@@ -302,10 +296,6 @@ var (
 			{
 				Name:   crudechainmoduletypes.ModuleName,
 				Config: appconfig.WrapAny(&crudechainmodulev1.Module{}),
-			},
-			{
-				Name:   resourcemoduletypes.ModuleName,
-				Config: appconfig.WrapAny(&resourcemodulev1.Module{}),
 			},
 			// this line is used by starport scaffolding # stargate/app/moduleConfig
 		},

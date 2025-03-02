@@ -76,8 +76,6 @@ import (
 	ibckeeper "github.com/cosmos/ibc-go/v8/modules/core/keeper"
 
 	crudechainmodulekeeper "crude-chain/x/crudechain/keeper"
-	resourcemodulekeeper "crude-chain/x/resource/keeper"
-
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 
 	"crude-chain/docs"
@@ -144,7 +142,6 @@ type App struct {
 	ScopedKeepers             map[string]capabilitykeeper.ScopedKeeper
 
 	CrudechainKeeper crudechainmodulekeeper.Keeper
-	ResourceKeeper   resourcemodulekeeper.Keeper
 	// this line is used by starport scaffolding # stargate/app/keeperDeclaration
 
 	// simulation manager
@@ -249,7 +246,6 @@ func New(
 		&app.GroupKeeper,
 		&app.CircuitBreakerKeeper,
 		&app.CrudechainKeeper,
-		&app.ResourceKeeper,
 		// this line is used by starport scaffolding # stargate/app/keeperDefinition
 	); err != nil {
 		panic(err)
