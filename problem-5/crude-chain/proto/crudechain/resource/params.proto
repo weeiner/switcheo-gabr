@@ -1,0 +1,15 @@
+syntax = "proto3";
+package crudechain.resource;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "crude-chain/x/resource/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (amino.name) = "crudechain/x/resource/Params";
+  option (gogoproto.equal) = true;
+
+  
+}
