@@ -1,0 +1,10 @@
+syntax = "proto3";
+package crudechain.crudechain;
+
+option go_package = "crude-chain/x/crudechain/types";
+
+message Resource {
+  
+  string name = 1; 
+  string description = 2; 
+}
