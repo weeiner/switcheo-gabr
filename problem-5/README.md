@@ -22,6 +22,6 @@ message User {
 ```
 
 ## Why this breaks consensus 
-The field numbers changed (creator moved from 6 → 7) → Old nodes cannot read existing stored data correctly.
-New field address added → Old versions don’t recognize it, leading to data inconsistencies.
-A hard fork is required → All nodes must upgrade before this change can be deployed.
+Old nodes do not recognize the address field.
+The creator field moved, causing stored data to be misinterpreted.
+Requires all nodes to upgrade to remain compatible.
