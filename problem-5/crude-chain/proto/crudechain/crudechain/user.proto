@@ -13,4 +13,5 @@ message User {
   string address = 4;  // Added a new field (Consensus-breaking!)
   string gender = 5;
   uint64 age = 6;
+  string creator = 7; // changed position
 }
