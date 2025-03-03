@@ -12,6 +12,7 @@
 1. Navigate to the `crude-chain` folder.
 2. Run the following command to start the blockchain:
    ```sh
+   ignite chain build
    ignite chain serve
    ```
 ## _Resources:_  
