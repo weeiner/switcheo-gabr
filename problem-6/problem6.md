@@ -18,7 +18,7 @@ The transaction broadcaster service is responsible for signing and broadcasting 
   - **Response Queue**: Handles responses from the blockchain network.
   - **Retry Queue**: Stores failed transactions for later retries.
 - **EVM-compatible Blockchain Node**: Receives signed transactions via RPC calls.
-- **Database**: Stores transaction logs, status, and retry information.
+- **Relational Database**: Stores transaction logs, status, and retry information.
 - **Admin Dashboard**: Allows manual intervention and transaction monitoring.
 
 ## **High-Level Flow**
