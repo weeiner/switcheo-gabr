@@ -1937,23 +1937,23 @@ func (x *fastReflection_MsgCreateUserResponse) ProtoMethods() *protoiface.Method
 
 var (
 	md_MsgUpdateUser         protoreflect.MessageDescriptor
-	fd_MsgUpdateUser_creator protoreflect.FieldDescriptor
 	fd_MsgUpdateUser_id      protoreflect.FieldDescriptor
 	fd_MsgUpdateUser_name    protoreflect.FieldDescriptor
 	fd_MsgUpdateUser_email   protoreflect.FieldDescriptor
-	fd_MsgUpdateUser_gender  protoreflect.FieldDescriptor
 	fd_MsgUpdateUser_age     protoreflect.FieldDescriptor
+	fd_MsgUpdateUser_gender  protoreflect.FieldDescriptor
+	fd_MsgUpdateUser_creator protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_crudechain_crudechain_tx_proto_init()
 	md_MsgUpdateUser = File_crudechain_crudechain_tx_proto.Messages().ByName("MsgUpdateUser")
-	fd_MsgUpdateUser_creator = md_MsgUpdateUser.Fields().ByName("creator")
 	fd_MsgUpdateUser_id = md_MsgUpdateUser.Fields().ByName("id")
 	fd_MsgUpdateUser_name = md_MsgUpdateUser.Fields().ByName("name")
 	fd_MsgUpdateUser_email = md_MsgUpdateUser.Fields().ByName("email")
-	fd_MsgUpdateUser_gender = md_MsgUpdateUser.Fields().ByName("gender")
 	fd_MsgUpdateUser_age = md_MsgUpdateUser.Fields().ByName("age")
+	fd_MsgUpdateUser_gender = md_MsgUpdateUser.Fields().ByName("gender")
+	fd_MsgUpdateUser_creator = md_MsgUpdateUser.Fields().ByName("creator")
 }
 
 var _ protoreflect.Message = (*fastReflection_MsgUpdateUser)(nil)
@@ -2021,12 +2021,6 @@ func (x *fastReflection_MsgUpdateUser) Interface() protoreflect.ProtoMessage {
 // While iterating, mutating operations may only be performed
 // on the current field descriptor.
 func (x *fastReflection_MsgUpdateUser) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
-	if x.Creator != "" {
-		value := protoreflect.ValueOfString(x.Creator)
-		if !f(fd_MsgUpdateUser_creator, value) {
-			return
-		}
-	}
 	if x.Id != uint64(0) {
 		value := protoreflect.ValueOfUint64(x.Id)
 		if !f(fd_MsgUpdateUser_id, value) {
@@ -2045,15 +2039,21 @@ func (x *fastReflection_MsgUpdateUser) Range(f func(protoreflect.FieldDescriptor
 			return
 		}
 	}
+	if x.Age != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.Age)
+		if !f(fd_MsgUpdateUser_age, value) {
+			return
+		}
+	}
 	if x.Gender != "" {
 		value := protoreflect.ValueOfString(x.Gender)
 		if !f(fd_MsgUpdateUser_gender, value) {
 			return
 		}
 	}
-	if x.Age != uint64(0) {
-		value := protoreflect.ValueOfUint64(x.Age)
-		if !f(fd_MsgUpdateUser_age, value) {
+	if x.Creator != "" {
+		value := protoreflect.ValueOfString(x.Creator)
+		if !f(fd_MsgUpdateUser_creator, value) {
 			return
 		}
 	}
@@ -2072,18 +2072,18 @@ func (x *fastReflection_MsgUpdateUser) Range(f func(protoreflect.FieldDescriptor
 // a repeated field is populated if it is non-empty.
 func (x *fastReflection_MsgUpdateUser) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
-	case "crudechain.crudechain.MsgUpdateUser.creator":
-		return x.Creator != ""
 	case "crudechain.crudechain.MsgUpdateUser.id":
 		return x.Id != uint64(0)
 	case "crudechain.crudechain.MsgUpdateUser.name":
 		return x.Name != ""
 	case "crudechain.crudechain.MsgUpdateUser.email":
 		return x.Email != ""
-	case "crudechain.crudechain.MsgUpdateUser.gender":
-		return x.Gender != ""
 	case "crudechain.crudechain.MsgUpdateUser.age":
 		return x.Age != uint64(0)
+	case "crudechain.crudechain.MsgUpdateUser.gender":
+		return x.Gender != ""
+	case "crudechain.crudechain.MsgUpdateUser.creator":
+		return x.Creator != ""
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.MsgUpdateUser"))
@@ -2100,18 +2100,18 @@ func (x *fastReflection_MsgUpdateUser) Has(fd protoreflect.FieldDescriptor) bool
 // Clear is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_MsgUpdateUser) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
-	case "crudechain.crudechain.MsgUpdateUser.creator":
-		x.Creator = ""
 	case "crudechain.crudechain.MsgUpdateUser.id":
 		x.Id = uint64(0)
 	case "crudechain.crudechain.MsgUpdateUser.name":
 		x.Name = ""
 	case "crudechain.crudechain.MsgUpdateUser.email":
 		x.Email = ""
-	case "crudechain.crudechain.MsgUpdateUser.gender":
-		x.Gender = ""
 	case "crudechain.crudechain.MsgUpdateUser.age":
 		x.Age = uint64(0)
+	case "crudechain.crudechain.MsgUpdateUser.gender":
+		x.Gender = ""
+	case "crudechain.crudechain.MsgUpdateUser.creator":
+		x.Creator = ""
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.MsgUpdateUser"))
@@ -2128,9 +2128,6 @@ func (x *fastReflection_MsgUpdateUser) Clear(fd protoreflect.FieldDescriptor) {
 // of the value; to obtain a mutable reference, use Mutable.
 func (x *fastReflection_MsgUpdateUser) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
 	switch descriptor.FullName() {
-	case "crudechain.crudechain.MsgUpdateUser.creator":
-		value := x.Creator
-		return protoreflect.ValueOfString(value)
 	case "crudechain.crudechain.MsgUpdateUser.id":
 		value := x.Id
 		return protoreflect.ValueOfUint64(value)
@@ -2140,12 +2137,15 @@ func (x *fastReflection_MsgUpdateUser) Get(descriptor protoreflect.FieldDescript
 	case "crudechain.crudechain.MsgUpdateUser.email":
 		value := x.Email
 		return protoreflect.ValueOfString(value)
-	case "crudechain.crudechain.MsgUpdateUser.gender":
-		value := x.Gender
-		return protoreflect.ValueOfString(value)
 	case "crudechain.crudechain.MsgUpdateUser.age":
 		value := x.Age
 		return protoreflect.ValueOfUint64(value)
+	case "crudechain.crudechain.MsgUpdateUser.gender":
+		value := x.Gender
+		return protoreflect.ValueOfString(value)
+	case "crudechain.crudechain.MsgUpdateUser.creator":
+		value := x.Creator
+		return protoreflect.ValueOfString(value)
 	default:
 		if descriptor.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.MsgUpdateUser"))
@@ -2166,18 +2166,18 @@ func (x *fastReflection_MsgUpdateUser) Get(descriptor protoreflect.FieldDescript
 // Set is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_MsgUpdateUser) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
 	switch fd.FullName() {
-	case "crudechain.crudechain.MsgUpdateUser.creator":
-		x.Creator = value.Interface().(string)
 	case "crudechain.crudechain.MsgUpdateUser.id":
 		x.Id = value.Uint()
 	case "crudechain.crudechain.MsgUpdateUser.name":
 		x.Name = value.Interface().(string)
 	case "crudechain.crudechain.MsgUpdateUser.email":
 		x.Email = value.Interface().(string)
-	case "crudechain.crudechain.MsgUpdateUser.gender":
-		x.Gender = value.Interface().(string)
 	case "crudechain.crudechain.MsgUpdateUser.age":
 		x.Age = value.Uint()
+	case "crudechain.crudechain.MsgUpdateUser.gender":
+		x.Gender = value.Interface().(string)
+	case "crudechain.crudechain.MsgUpdateUser.creator":
+		x.Creator = value.Interface().(string)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.MsgUpdateUser"))
@@ -2198,18 +2198,18 @@ func (x *fastReflection_MsgUpdateUser) Set(fd protoreflect.FieldDescriptor, valu
 // Mutable is a mutating operation and unsafe for concurrent use.
 func (x *fastReflection_MsgUpdateUser) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "crudechain.crudechain.MsgUpdateUser.creator":
-		panic(fmt.Errorf("field creator of message crudechain.crudechain.MsgUpdateUser is not mutable"))
 	case "crudechain.crudechain.MsgUpdateUser.id":
 		panic(fmt.Errorf("field id of message crudechain.crudechain.MsgUpdateUser is not mutable"))
 	case "crudechain.crudechain.MsgUpdateUser.name":
 		panic(fmt.Errorf("field name of message crudechain.crudechain.MsgUpdateUser is not mutable"))
 	case "crudechain.crudechain.MsgUpdateUser.email":
 		panic(fmt.Errorf("field email of message crudechain.crudechain.MsgUpdateUser is not mutable"))
-	case "crudechain.crudechain.MsgUpdateUser.gender":
-		panic(fmt.Errorf("field gender of message crudechain.crudechain.MsgUpdateUser is not mutable"))
 	case "crudechain.crudechain.MsgUpdateUser.age":
 		panic(fmt.Errorf("field age of message crudechain.crudechain.MsgUpdateUser is not mutable"))
+	case "crudechain.crudechain.MsgUpdateUser.gender":
+		panic(fmt.Errorf("field gender of message crudechain.crudechain.MsgUpdateUser is not mutable"))
+	case "crudechain.crudechain.MsgUpdateUser.creator":
+		panic(fmt.Errorf("field creator of message crudechain.crudechain.MsgUpdateUser is not mutable"))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.MsgUpdateUser"))
@@ -2223,18 +2223,18 @@ func (x *fastReflection_MsgUpdateUser) Mutable(fd protoreflect.FieldDescriptor) 
 // For lists, maps, and messages, this returns a new, empty, mutable value.
 func (x *fastReflection_MsgUpdateUser) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
 	switch fd.FullName() {
-	case "crudechain.crudechain.MsgUpdateUser.creator":
-		return protoreflect.ValueOfString("")
 	case "crudechain.crudechain.MsgUpdateUser.id":
 		return protoreflect.ValueOfUint64(uint64(0))
 	case "crudechain.crudechain.MsgUpdateUser.name":
 		return protoreflect.ValueOfString("")
 	case "crudechain.crudechain.MsgUpdateUser.email":
 		return protoreflect.ValueOfString("")
-	case "crudechain.crudechain.MsgUpdateUser.gender":
-		return protoreflect.ValueOfString("")
 	case "crudechain.crudechain.MsgUpdateUser.age":
 		return protoreflect.ValueOfUint64(uint64(0))
+	case "crudechain.crudechain.MsgUpdateUser.gender":
+		return protoreflect.ValueOfString("")
+	case "crudechain.crudechain.MsgUpdateUser.creator":
+		return protoreflect.ValueOfString("")
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.MsgUpdateUser"))
@@ -2304,10 +2304,6 @@ func (x *fastReflection_MsgUpdateUser) ProtoMethods() *protoiface.Methods {
 		var n int
 		var l int
 		_ = l
-		l = len(x.Creator)
-		if l > 0 {
-			n += 1 + l + runtime.Sov(uint64(l))
-		}
 		if x.Id != 0 {
 			n += 1 + runtime.Sov(uint64(x.Id))
 		}
@@ -2319,12 +2315,16 @@ func (x *fastReflection_MsgUpdateUser) ProtoMethods() *protoiface.Methods {
 		if l > 0 {
 			n += 1 + l + runtime.Sov(uint64(l))
 		}
+		if x.Age != 0 {
+			n += 1 + runtime.Sov(uint64(x.Age))
+		}
 		l = len(x.Gender)
 		if l > 0 {
 			n += 1 + l + runtime.Sov(uint64(l))
 		}
-		if x.Age != 0 {
-			n += 1 + runtime.Sov(uint64(x.Age))
+		l = len(x.Creator)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
 		}
 		if x.unknownFields != nil {
 			n += len(x.unknownFields)
@@ -2355,10 +2355,12 @@ func (x *fastReflection_MsgUpdateUser) ProtoMethods() *protoiface.Methods {
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
 		}
-		if x.Age != 0 {
-			i = runtime.EncodeVarint(dAtA, i, uint64(x.Age))
+		if len(x.Creator) > 0 {
+			i -= len(x.Creator)
+			copy(dAtA[i:], x.Creator)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Creator)))
 			i--
-			dAtA[i] = 0x30
+			dAtA[i] = 0x32
 		}
 		if len(x.Gender) > 0 {
 			i -= len(x.Gender)
@@ -2367,31 +2369,29 @@ func (x *fastReflection_MsgUpdateUser) ProtoMethods() *protoiface.Methods {
 			i--
 			dAtA[i] = 0x2a
 		}
+		if x.Age != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.Age))
+			i--
+			dAtA[i] = 0x20
+		}
 		if len(x.Email) > 0 {
 			i -= len(x.Email)
 			copy(dAtA[i:], x.Email)
 			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Email)))
 			i--
-			dAtA[i] = 0x22
+			dAtA[i] = 0x1a
 		}
 		if len(x.Name) > 0 {
 			i -= len(x.Name)
 			copy(dAtA[i:], x.Name)
 			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Name)))
 			i--
-			dAtA[i] = 0x1a
+			dAtA[i] = 0x12
 		}
 		if x.Id != 0 {
 			i = runtime.EncodeVarint(dAtA, i, uint64(x.Id))
 			i--
-			dAtA[i] = 0x10
-		}
-		if len(x.Creator) > 0 {
-			i -= len(x.Creator)
-			copy(dAtA[i:], x.Creator)
-			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Creator)))
-			i--
-			dAtA[i] = 0xa
+			dAtA[i] = 0x8
 		}
 		if input.Buf != nil {
 			input.Buf = append(input.Buf, dAtA...)
@@ -2443,38 +2443,6 @@ func (x *fastReflection_MsgUpdateUser) ProtoMethods() *protoiface.Methods {
 			}
 			switch fieldNum {
 			case 1:
-				if wireType != 2 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
-				}
-				var stringLen uint64
-				for shift := uint(0); ; shift += 7 {
-					if shift >= 64 {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
-					}
-					if iNdEx >= l {
-						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-					}
-					b := dAtA[iNdEx]
-					iNdEx++
-					stringLen |= uint64(b&0x7F) << shift
-					if b < 0x80 {
-						break
-					}
-				}
-				intStringLen := int(stringLen)
-				if intStringLen < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				postIndex := iNdEx + intStringLen
-				if postIndex < 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
-				}
-				if postIndex > l {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
-				}
-				x.Creator = string(dAtA[iNdEx:postIndex])
-				iNdEx = postIndex
-			case 2:
 				if wireType != 0 {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
 				}
@@ -2493,7 +2461,7 @@ func (x *fastReflection_MsgUpdateUser) ProtoMethods() *protoiface.Methods {
 						break
 					}
 				}
-			case 3:
+			case 2:
 				if wireType != 2 {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Name", wireType)
 				}
@@ -2525,7 +2493,7 @@ func (x *fastReflection_MsgUpdateUser) ProtoMethods() *protoiface.Methods {
 				}
 				x.Name = string(dAtA[iNdEx:postIndex])
 				iNdEx = postIndex
-			case 4:
+			case 3:
 				if wireType != 2 {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Email", wireType)
 				}
@@ -2557,6 +2525,25 @@ func (x *fastReflection_MsgUpdateUser) ProtoMethods() *protoiface.Methods {
 				}
 				x.Email = string(dAtA[iNdEx:postIndex])
 				iNdEx = postIndex
+			case 4:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Age", wireType)
+				}
+				x.Age = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.Age |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
 			case 5:
 				if wireType != 2 {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Gender", wireType)
@@ -2590,10 +2577,10 @@ func (x *fastReflection_MsgUpdateUser) ProtoMethods() *protoiface.Methods {
 				x.Gender = string(dAtA[iNdEx:postIndex])
 				iNdEx = postIndex
 			case 6:
-				if wireType != 0 {
-					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Age", wireType)
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
 				}
-				x.Age = 0
+				var stringLen uint64
 				for shift := uint(0); ; shift += 7 {
 					if shift >= 64 {
 						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
@@ -2603,11 +2590,24 @@ func (x *fastReflection_MsgUpdateUser) ProtoMethods() *protoiface.Methods {
 					}
 					b := dAtA[iNdEx]
 					iNdEx++
-					x.Age |= uint64(b&0x7F) << shift
+					stringLen |= uint64(b&0x7F) << shift
 					if b < 0x80 {
 						break
 					}
 				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Creator = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
 			default:
 				iNdEx = preIndex
 				skippy, err := runtime.Skip(dAtA[iNdEx:])
@@ -4017,12 +4017,12 @@ type MsgUpdateUser struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Creator string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
-	Id      uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
-	Name    string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	Email   string `protobuf:"bytes,4,opt,name=email,proto3" json:"email,omitempty"`
+	Id      uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name    string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Email   string `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"`
+	Age     uint64 `protobuf:"varint,4,opt,name=age,proto3" json:"age,omitempty"`
 	Gender  string `protobuf:"bytes,5,opt,name=gender,proto3" json:"gender,omitempty"`
-	Age     uint64 `protobuf:"varint,6,opt,name=age,proto3" json:"age,omitempty"`
+	Creator string `protobuf:"bytes,6,opt,name=creator,proto3" json:"creator,omitempty"`
 }
 
 func (x *MsgUpdateUser) Reset() {
@@ -4043,13 +4043,6 @@ func (*MsgUpdateUser) ProtoMessage() {}
 // Deprecated: Use MsgUpdateUser.ProtoReflect.Descriptor instead.
 func (*MsgUpdateUser) Descriptor() ([]byte, []int) {
 	return file_crudechain_crudechain_tx_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *MsgUpdateUser) GetCreator() string {
-	if x != nil {
-		return x.Creator
-	}
-	return ""
 }
 
 func (x *MsgUpdateUser) GetId() uint64 {
@@ -4073,6 +4066,13 @@ func (x *MsgUpdateUser) GetEmail() string {
 	return ""
 }
 
+func (x *MsgUpdateUser) GetAge() uint64 {
+	if x != nil {
+		return x.Age
+	}
+	return 0
+}
+
 func (x *MsgUpdateUser) GetGender() string {
 	if x != nil {
 		return x.Gender
@@ -4080,11 +4080,11 @@ func (x *MsgUpdateUser) GetGender() string {
 	return ""
 }
 
-func (x *MsgUpdateUser) GetAge() uint64 {
+func (x *MsgUpdateUser) GetCreator() string {
 	if x != nil {
-		return x.Age
+		return x.Creator
 	}
-	return 0
+	return ""
 }
 
 type MsgUpdateUserResponse struct {
@@ -4223,15 +4223,15 @@ var file_crudechain_crudechain_tx_proto_rawDesc = []byte{
 	0x73, 0x67, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70,
 	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04,
 	0x52, 0x02, 0x69, 0x64, 0x22, 0x9b, 0x01, 0x0a, 0x0d, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61,
-	0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f,
-	0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72,
-	0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64,
-	0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04,
-	0x6e, 0x61, 0x6d, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x18, 0x04, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x12, 0x16, 0x0a, 0x06, 0x67, 0x65,
-	0x6e, 0x64, 0x65, 0x72, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x67, 0x65, 0x6e, 0x64,
-	0x65, 0x72, 0x12, 0x10, 0x0a, 0x03, 0x61, 0x67, 0x65, 0x18, 0x06, 0x20, 0x01, 0x28, 0x04, 0x52,
-	0x03, 0x61, 0x67, 0x65, 0x3a, 0x0c, 0x82, 0xe7, 0xb0, 0x2a, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74,
+	0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x6d,
+	0x61, 0x69, 0x6c, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c,
+	0x12, 0x10, 0x0a, 0x03, 0x61, 0x67, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x04, 0x52, 0x03, 0x61,
+	0x67, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x67, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x18, 0x05, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x06, 0x67, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x72,
+	0x65, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x72, 0x65,
+	0x61, 0x74, 0x6f, 0x72, 0x3a, 0x0c, 0x82, 0xe7, 0xb0, 0x2a, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74,
 	0x6f, 0x72, 0x22, 0x17, 0x0a, 0x15, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x55,
 	0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x47, 0x0a, 0x0d, 0x4d,
 	0x73, 0x67, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x12, 0x18, 0x0a, 0x07,

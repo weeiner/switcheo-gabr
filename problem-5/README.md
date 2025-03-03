@@ -35,10 +35,10 @@ crude-chaind tx crudechain create-user "Alice" "alice@example.com" "female" 25 -
 ```
 Other Examples
 ```sh
-crude-chaind tx crudechain create-user "Gabriel" "gabriel@example.com" "male" 25 --from bob --chain-id crudechain --yes
+crude-chaind tx crudechain create-user "Gabriel" "gabriel@example.com" "male" 25 --from alice --chain-id crudechain --yes
 ```
 ```sh
-crude-chaind tx crudechain create-user "John" "johnl@example.com" "male" 30 --from bob --chain-id crudechain --yes
+crude-chaind tx crudechain create-user "John" "johnl@example.com" "male" 30 --from alice --chain-id crudechain --yes
 ```
 
 ### **Get All Users**
@@ -68,9 +68,19 @@ crude-chaind query crudechain users-by-gender --gender male --chain-id crudechai
 ### **Update User Details**
 To update an existing user's details:
 ```sh
-crude-chaind tx crudechain update-user 0 "Alice Updated" "alice_new@example.com" 26 "Female" --from alice --chain-id crudechain --yes
+crude-chaind tx crudechain update-user 0 "Alice Updated" "alice_new@example.com" "Female" 26 --from alice --chain-id crudechain --yes
 ```
 Verify the update:
 ```sh
 crude-chaind query crudechain show-user 0 --chain-id crudechain
+```
+
+### **Delete Specific User**
+To delete a user (Alice):
+```sh
+crude-chaind tx crudechain delete-user 0 --from alice --chain-id crudechain --yes
+```
+Verify the update:
+```sh
+crude-chaind query crudechain list-user --chain-id crudechain  
 ```

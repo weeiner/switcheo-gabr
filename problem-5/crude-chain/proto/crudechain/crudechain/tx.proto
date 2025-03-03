@@ -53,13 +53,13 @@ message MsgCreateUserResponse {
 }
 
 message MsgUpdateUser {
+  uint64 id = 1;        
+  string name = 2;     
+  string email = 3;     
+  uint64 age = 4;       
+  string gender = 5;    
+  string creator = 6;
   option (cosmos.msg.v1.signer) = "creator";
-  string creator = 1;
-  uint64 id      = 2;
-  string name    = 3;
-  string email   = 4;
-  string gender  = 5;
-  uint64 age     = 6;
 }
 
 message MsgUpdateUserResponse {}
