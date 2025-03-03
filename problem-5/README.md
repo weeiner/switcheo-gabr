@@ -1,6 +1,6 @@
 # Consensus-Breaking Change: User Data Structure Update
 
-## What Does Breaking Consensus Mean? 
+## a. Explain what does it mean by breaking consensus. 
 Breaking consensus refers to making changes to a blockchain that cause nodes running different versions of the software to disagree on the state of the blockchain. When consensus is broken, nodes cannot validate transactions or blocks correctly, leading to chain splits or forks.
 
 ## **What Changed?**
@@ -21,7 +21,7 @@ message User {
 }
 ```
 
-## Why this breaks consensus 
+## b. Explain why your change would break the consensus
 Old nodes do not recognize the address field.
 The creator field moved, causing stored data to be misinterpreted.
 Requires all nodes to upgrade to remain compatible.
