@@ -9,6 +9,10 @@ const (
 
 	// MemStoreKey defines the in-memory store key
 	MemStoreKey = "mem_crudechain"
+
+	UserKey = "User/value/"
+
+	UserCountKey = "User/count/"
 )
 
 var (

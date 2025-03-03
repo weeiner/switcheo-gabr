@@ -1,12 +1,16 @@
 syntax = "proto3";
+
 package crudechain.crudechain;
+
+import "gogoproto/gogo.proto";
 
 option go_package = "crude-chain/x/crudechain/types";
 
 message User {
-  
-  string name = 1; 
-  string email = 2; 
-  string gender = 3; 
-  uint64 age = 4; 
+    uint64 id = 1 [(gogoproto.customname) = "Id"];
+    string name = 2;
+    string email = 3;
+    string gender = 4;
+    uint64 age = 5;
+    string creator = 6;
 }

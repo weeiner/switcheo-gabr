@@ -17,6 +17,20 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					Use:       "params",
 					Short:     "Shows the parameters of the module",
 				},
+				{
+					RpcMethod:      "ShowUser",
+					Use:            "show-user [id]",
+					Short:          "Query show-user",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "id"}},
+				},
+
+				{
+					RpcMethod:      "ListUser",
+					Use:            "list-user",
+					Short:          "Query list-user",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{},
+				},
+
 				// this line is used by ignite scaffolding # autocli/query
 			},
 		},
@@ -27,6 +41,24 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				{
 					RpcMethod: "UpdateParams",
 					Skip:      true, // skipped because authority gated
+				},
+				{
+					RpcMethod:      "CreateUser",
+					Use:            "create-user [name] [email] [gender] [age]",
+					Short:          "Send a create-user tx",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "name"}, {ProtoField: "email"}, {ProtoField: "gender"}, {ProtoField: "age"}},
+				},
+				{
+					RpcMethod:      "UpdateUser",
+					Use:            "update-user [id] [name] [email] [gender] [age]",
+					Short:          "Send a update-user tx",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "id"}, {ProtoField: "name"}, {ProtoField: "email"}, {ProtoField: "gender"}, {ProtoField: "age"}},
+				},
+				{
+					RpcMethod:      "DeleteUser",
+					Use:            "delete-user [id]",
+					Short:          "Send a delete-user tx",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "id"}},
 				},
 				// this line is used by ignite scaffolding # autocli/tx
 			},
